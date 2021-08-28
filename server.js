@@ -29,12 +29,12 @@ app.use('/api/v1/bootcamps', bootcamps);
 const PORT = process.env.PORT || 5000;
 const mongo_uri = process.env.MONGO_URI;
 mongoose
-	.connect('mongodb+srv://node:cw26174@MONGODB@cluster0.rwjm6.mongodb.net/devcamper?retryWrites=true&w=majority', {
+	.connect(mongo_uri, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
 	.then(() => {
-		app.listen(5000);
+		app.listen(PORT);
 		console.log('Mongoose and Server running...');
 	})
 	.catch((err) => {
