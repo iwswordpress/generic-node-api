@@ -5,7 +5,7 @@ const morgan = require('morgan');
 dotenv.config({ path: './config/config.env' });
 const colors = require('colors');
 require('./colors');
-const { connectMongoDB, listDatabases } = require('./config/mongodb');
+const { connectMongoDB } = require('./config/mongodb');
 connectMongoDB();
 
 // const connectDB = require('./config/db');

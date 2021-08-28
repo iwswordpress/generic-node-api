@@ -4,7 +4,11 @@ require('../colors');
 
 const uri = `mongodb+srv://node:cw26174@MONGODB@cluster0.rwjm6.mongodb.net/devcamper?retryWrites=true&w=majority`;
 
-const client = new MongoClient(uri, { useUnifiedTopology: true });
+const dotenv = require('dotenv');
+dotenv.config({ path: './config/config.env' });
+const mongo_url = process.env.MONGO_URI;
+console.log(uri, mongo_url);
+const client = new MongoClient(mongo_url, { useUnifiedTopology: true });
 async function connectMongoDB() {
 	try {
 		await client.connect();
