@@ -3,16 +3,21 @@ const colors = require('colors');
 require('../colors');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config/config.env' });
-const mongo_url = process.env.MONGO_URI;
-console.log(mongo_url);
+const mongo_uri = process.env.MONGO_URI;
 const connectDB = async () => {
-	console.log('connecting to mongoosw...');
-	const conn = await mongoose.connect(mongo_url, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	});
+	console.log('connecting to mongoose...');
 
-	console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold);
+	mongoose
+		.connect(mongo_uri, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		})
+		.then(() => {
+			console.log(colors.verbose.bold(`Mongoose connected...${mongo_uri}`));
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 };
 
 module.exports = connectDB;
