@@ -1,9 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+
 dotenv.config({ path: './config/config.env' });
 const colors = require('colors');
 require('./colors');
+const { connectMongoDB, listDatabases } = require('./config/mongodb');
+connectMongoDB();
+
+// const connectDB = require('./config/db');
+// connectDB();
 const logger = require('./middleware/logger');
 
 // Route files
@@ -24,7 +30,5 @@ app.use('/api/v1/bootcamps', bootcamps);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-	console.log(
-		`Server running in ${process.env.NODE_ENVIRONMENT} mode on PORT ${PORT} \nMongoDB on ${process.env.MONGODB_URL}`,
-	);
+	console.log(`Server running in ${process.env.NODE_ENV} mode on PORT ${PORT}`);
 });
