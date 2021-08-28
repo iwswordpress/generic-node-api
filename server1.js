@@ -7,8 +7,6 @@ dotenv.config({ path: './config/config.env' });
 const colors = require('colors');
 require('./colors');
 
-// const connectDB = require('./config/db');
-// connectDB();
 const logger = require('./middleware/logger');
 
 // Route files
@@ -28,15 +26,18 @@ app.use('/api/v1/bootcamps', bootcamps);
 
 const PORT = process.env.PORT || 5000;
 const mongo_uri = process.env.MONGO_URI;
-mongoose
-	.connect(mongo_uri, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => {
-		app.listen(PORT);
-		console.log('Mongoose and Server running...');
-	})
-	.catch((err) => {
-		console.log(err);
-	});
+
+app.listen(PORT, () => {
+	console.log(colors.white.inverse(`Server running in ${process.env.NODE_ENV} mode on PORT ${PORT}`));
+	mongoose
+		.connect(mongo_uri, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		})
+		.then(() => {
+			console.log(colors.verbose.bold(`Mongoose connected...${mongo_uri}`));
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+});
