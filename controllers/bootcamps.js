@@ -10,7 +10,7 @@ exports.getBootcamps = async (req, res, next) => {
 		const bootcamps = await Bootcamp.find();
 		res.status(200).json({
 			success: true,
-			msg: 'GET all bootcamps',
+			count: bootcamps.length,
 			data: bootcamps,
 			hello: req.hello,
 			user: req.user,
