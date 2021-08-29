@@ -21,8 +21,13 @@ exports.getBootcamp = (req, res, next) => {
 // @access   Privte
 exports.createBootcamp = async (req, res, next) => {
 	console.log('data sent', req.body);
-	const bootcamp = await Bootcamp.create(req.body);
-	res.status(201).json({ success: true, msg: 'CREATED new bootcamp', data: bootcamp });
+	try {
+		const bootcamp = await Bootcamp.create(req.body);
+		res.status(201).json({ success: true, msg: 'CREATED new bootcamp', data: bootcamp });
+	} catch (e) {
+		console.log(e);
+		res.status(400).json({ success: false, msg: 'FAILED TO CREATE', data: null });
+	}
 };
 
 // @desc     Update a bootcamp
