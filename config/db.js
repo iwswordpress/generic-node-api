@@ -9,11 +9,9 @@ const connectDB = async () => {
 
 	const conn = await mongoose.connect(mongo_uri, {
 		useNewUrlParser: true,
-		useUnifiedTopology: true,
 	});
 	console.log(colors.verbose.bold(`Mongoose connected: ${conn.connection.host}`));
 };
-
 module.exports = connectDB;
 
 // mongoose
