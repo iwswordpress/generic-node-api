@@ -7,6 +7,7 @@ const DB = 'sample_airbnb';
 const COL = 'test';
 // const COL = 'listingsAndReviews';
 // RUN
+
 main().catch(console.error);
 
 async function main() {
