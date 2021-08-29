@@ -1,6 +1,10 @@
+// const connectDB = require('../config/db');
+// connectDB();
+
 // @desc     GET all bootcamps
 // @route    GET /api/v1/bootcamps
-// @access   Public
+// // @access   Public
+
 exports.getBootcamps = (req, res, next) => {
 	res.status(200).json({ success: true, msg: 'GET all bootcamps', hello: req.hello, user: req.user });
 };

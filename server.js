@@ -27,6 +27,13 @@ app.use('/api/v1/bootcamps', bootcamps);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-	console.log(colors.white.inverse(`Server running in ${process.env.NODE_ENV} mode on PORT ${PORT}`));
+	console.log(colors.white.inverse(`  Server running in ${process.env.NODE_ENV} mode on PORT ${PORT}  `));
 	connectDB();
+});
+
+// Handle unhandled promise rejections
+
+process.on('unhandledRejection', (err, promise) => {
+	console.log(colors.error(`Error: ${err.message}`));
+	server.close(() => process.exit(1));
 });
