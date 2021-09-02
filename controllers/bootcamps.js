@@ -64,18 +64,15 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 // @desc     Delete a bootcamp
 // @route    DELETE /api/v1/bootcamps/:id
 // @access   Private
-exports.deleteBootcamp = async (req, res, next) => {
+exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
 	console.log('bootcamp id:', req.params.id);
-	try {
-		const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
-		if (!bootcamp) {
-			return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
-		}
-		res.status(200).json({
-			success: true,
-			msg: `DELETED ${req.params.id}`,
-		});
-	} catch (err) {
-		next(err);
+
+	const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
+	if (!bootcamp) {
+		return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
 	}
-};
+	res.status(200).json({
+		success: true,
+		msg: `DELETED ${req.params.id}`,
+	});
+});
