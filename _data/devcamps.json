@@ -1,0 +1,62 @@
+[
+	{
+		"id": "61310714e240af1110bc3bad",
+		"user": "61310714722e31f5b5aed6fe",
+		"name": "Joann Herzog",
+		"email": "Rollin_Toy50@hotmail.com",
+		"phone": "573-363-0132 x72044",
+		"address": "32577 Osbaldo Station, Wiegandville, Saint Kitts and Nevis",
+		"description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+		"website": "https://moderntech.com",
+		"careers": ["Web Development", "UI/UX", "Mobile Development"],
+		"housing": false,
+		"jobAssistance": true,
+		"jobGuarantee": false,
+		"acceptGi": true
+	},
+	{
+		"id": "613107148546faec7667adf0",
+		"user": "61310714c3f8eacfe9ac462d",
+		"name": "Mrs. Donnie Bruen",
+		"email": "Coby_Swaniawski32@hotmail.com",
+		"phone": "440-795-4943 x519",
+		"address": "123 Blanda Prairie, South Dudleyhaven, Dominica",
+		"description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+		"website": "https://moderntech.com",
+		"careers": ["Web Development", "UI/UX", "Mobile Development"],
+		"housing": false,
+		"jobAssistance": true,
+		"jobGuarantee": false,
+		"acceptGi": true
+	},
+	{
+		"id": "61310714f4548c27bdc7a29e",
+		"user": "61310714493e53f99ca906a1",
+		"name": "Deanna Reinger",
+		"email": "Eileen86@gmail.com",
+		"phone": "560-515-4911 x7354",
+		"address": "21925 Satterfield Wall, Lake Rachaelchester, Saint Barthelemy",
+		"description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+		"website": "https://moderntech.com",
+		"careers": ["Web Development", "UI/UX", "Mobile Development"],
+		"housing": false,
+		"jobAssistance": true,
+		"jobGuarantee": false,
+		"acceptGi": true
+	},
+	{
+		"id": "61310714d71a7d3bc99c0728",
+		"user": "6131071479d2131ef70eb979",
+		"name": "Jo Feest",
+		"email": "Florian_Kemmer@gmail.com",
+		"phone": "1-529-689-2821",
+		"address": "182 Renner Summit, Amarillo, Netherlands Antilles",
+		"description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+		"website": "https://moderntech.com",
+		"careers": ["Web Development", "UI/UX", "Mobile Development"],
+		"housing": false,
+		"jobAssistance": true,
+		"jobGuarantee": false,
+		"acceptGi": true
+	}
+]
