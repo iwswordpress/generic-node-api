@@ -48,21 +48,18 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 // @desc     Update a bootcamp
 // @route    PUT /api/v1/bootcamps/:id
 // @access   Private
-exports.updateBootcamp = async (req, res, next) => {
+exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 	console.log('bootcamp id:', req.params.id);
-	try {
-		const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-		if (!bootcamp) {
-			return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
-		}
-		res.status(200).json({
-			success: true,
-			data: bootcamp,
-		});
-	} catch (err) {
-		next(err);
+
+	const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+	if (!bootcamp) {
+		return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
 	}
-};
+	res.status(200).json({
+		success: true,
+		data: bootcamp,
+	});
+});
 
 // @desc     Delete a bootcamp
 // @route    DELETE /api/v1/bootcamps/:id
