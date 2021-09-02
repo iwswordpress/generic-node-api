@@ -22,21 +22,18 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
 // @desc     GET single bootcamp
 // @route    GET /api/v1/bootcamps/:id
 // @access   Public
-exports.getBootcamp = async (req, res, next) => {
+exports.getBootcamp = asyncHandler(async (req, res, next) => {
 	console.log('bootcamp id:', req.params.id);
-	try {
-		const bootcamp = await Bootcamp.findById(req.params.id);
-		if (!bootcamp) {
-			return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
-		}
-		res.status(200).json({
-			success: true,
-			data: bootcamp,
-		});
-	} catch (err) {
-		next(err);
+
+	const bootcamp = await Bootcamp.findById(req.params.id);
+	if (!bootcamp) {
+		return next(new ErrorResponse(`Bootcamp not found in DB with id of ${req.params.id}`, 404));
 	}
-};
+	res.status(200).json({
+		success: true,
+		data: bootcamp,
+	});
+});
 
 // @desc     Create a bootcamp
 // @route    POST /api/v1/bootcamps/
