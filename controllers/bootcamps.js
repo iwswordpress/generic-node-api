@@ -38,16 +38,12 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @desc     Create a bootcamp
 // @route    POST /api/v1/bootcamps/
 // @access   Privte
-exports.createBootcamp = async (req, res, next) => {
+exports.createBootcamp = asyncHandler(async (req, res, next) => {
 	console.log('data sent', req.body);
 
-	try {
-		const bootcamp = await Bootcamp.create(req.body);
-		res.status(201).json({ success: true, msg: 'CREATED new bootcamp', data: bootcamp });
-	} catch (err) {
-		next(err);
-	}
-};
+	const bootcamp = await Bootcamp.create(req.body);
+	res.status(201).json({ success: true, msg: 'CREATED new bootcamp', data: bootcamp });
+});
 
 // @desc     Update a bootcamp
 // @route    PUT /api/v1/bootcamps/:id
