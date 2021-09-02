@@ -6,6 +6,8 @@ const dotenv = require('dotenv');
 // Load env vars
 dotenv.config({ path: './config/config.env' });
 
+const fileName = 'devcamps.json';
+
 // Load models
 const Bootcamp = require('./models/Bootcamp');
 // const Course = require('./models/Course');
@@ -21,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Read JSON files
-const bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_data/devcamps.json`, 'utf-8'));
+const bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_data/${fileName}`, 'utf-8'));
 
 // const courses = JSON.parse(fs.readFileSync(`${__dirname}/_data/courses.json`, 'utf-8'));
 

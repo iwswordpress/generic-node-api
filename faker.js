@@ -2,9 +2,7 @@ const fs = require('fs');
 const faker = require('faker');
 const colors = require('colors');
 
-const camps = ['Functional JS', 'GraphQL', 'RxJS', 'PWA', 'Web Components'];
-
-
+const camps = ['Functional JS', 'GraphQL', 'RxJS', 'PWA', 'Web Components', 'React', 'MongoDB'];
 
 var mongoObjectId = function () {
 	var timestamp = ((new Date().getTime() / 1000) | 0).toString(16);
@@ -19,8 +17,9 @@ var mongoObjectId = function () {
 };
 let bootcamps = [];
 const createFakerBootcamp = () => {
-	
-	const name = faker.name.findName(); // Rowan Nikolaus
+	const rndStr = 'Code' + Math.floor(Math.random() * 1000);
+	let name = camps[Math.floor(Math.random() * 7)] + rndStr;
+	name += Math.floor(Math.random() * 1000).toString();
 	const email = faker.internet.email(); // Kassandra.Haley@erich.biz
 	const phone = faker.phone.phoneNumber(); // Kassandra.Haley@erich.biz
 	const address = `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.country()}`;
@@ -46,7 +45,7 @@ const createFakerBootcamp = () => {
 };
 
 // module.exports = createFakerBootcamp;
-for (let i = 1; i < 5; i++) {
+for (let i = 1; i < 30; i++) {
 	createFakerBootcamp();
 }
 console.log(colors.green.inverse(`----- BOOTCAMPS ARRAY -----`));
